@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRAW课题组</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #0056b3;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .carousel {
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>STRAW课题组</h1>
+        <p>专注于城市发展与公共政策分析的创新研究</p>
+    </header>
+
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#research">研究方向</a>
+        <a href="#results">成果展示</a>
+        <a href="#showcase">风采展示</a>
+        <a href="#contact">联系我们</a>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="section">
+            <h2>关于我们</h2>
+            <p>STRAW课题组致力于通过多学科融合的方法，推动城市发展和社会治理的理论与实践进步。</p>
+        </section>
+
+        <section id="research" class="section">
+            <h2>研究方向</h2>
+            <ul>
+                <li>城市网络与复杂空间分析</li>
+                <li>公共政策模拟与数据驱动决策</li>
+                <li>生态产品价值实现与空间规划</li>
+            </ul>
+        </section>
+
+        <section id="results" class="section">
+            <h2>成果展示</h2>
+            <p>我们近期的研究成果包括：</p>
+            <ul>
+                <li>基于夜间灯光数据的城市分类研究</li>
+                <li>多维聚类方法在城市复杂性分析中的应用</li>
+                <li>低空经济发展与空间治理优化框架</li>
+            </ul>
+            <p>更多成果详见我们的<a href="#">论文和报告</a>。</p>
+        </section>
+
+        <section id="showcase" class="section">
+            <h2>风采展示</h2>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="https://pic.imgdb.cn/item/6758325ed0e0a243d4e17a13.jpg" alt="展示图片1">
+                    <img src="https://pic.imgdb.cn/item/675832c5d0e0a243d4e17a20.jpg" alt="展示图片2">
+                    <img src="https://pic.imgdb.cn/item/675832ded0e0a243d4e17a24.jpg" alt="展示图片3">
+                </div>
+                <div class="carousel-buttons">
+                    <button onclick="changeImage(-1)">&#10094;</button>
+                    <button onclick="changeImage(1)">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>联系我们</h2>
+            <p>欢迎学术合作与交流：</p>
+            <p>Email: <span class="highlight">straw-group@example.com</span></p>
+            <p>地址：华中师范大学公共管理学院</p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2024 STRAW课题组 | 版权所有
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".carousel-images img");
+        const totalImages = images.length;
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = totalImages - 1;
+            if (currentIndex >= totalImages) currentIndex = 0;
+            document.querySelector(".carousel-images").style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
+</body>
+</html>
